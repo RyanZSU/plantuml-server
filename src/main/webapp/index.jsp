@@ -3,6 +3,9 @@
 
 <c:set var="cfg" value="${applicationScope['cfg']}" />
 <c:set var="contextroot" value="${pageContext.request.contextPath}" />
+<c:if test="${System.getenv('BASE_URL') != null}">
+    <c:set var="contextroot" value="${System.getenv('BASE_URL')}${pageContext.request.contextPath}" />
+</c:if>
 <c:if test="${(pageContext.request.scheme == 'http' && pageContext.request.serverPort != 80) ||
         (pageContext.request.scheme == 'https' && pageContext.request.serverPort != 443) }">
     <c:set var="port" value=":${pageContext.request.serverPort}" />

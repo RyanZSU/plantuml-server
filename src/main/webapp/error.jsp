@@ -1,6 +1,9 @@
 <%@ page isErrorPage="true" contentType="text/html; charset=utf-8" pageEncoding="utf-8" session="false" %>
 <%
 String contextRoot = request.getContextPath();
+if (System.getenv("BASE_URL") != null) {
+    contextRoot = System.getenv("BASE_URL") + contextRoot;
+}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
